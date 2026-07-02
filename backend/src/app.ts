@@ -14,10 +14,6 @@ import categoryRoutes from "./routes/categoryRoutes";
 import cartRoutes from "./routes/cartRoutes";
 import orderRoutes from "./routes/orderRoutes";
 import adminRoutes from "./routes/adminRoutes";
-import bcrypt from "bcryptjs";
-import { User } from "./models/User";
-import { Category } from "./models/Category";
-import { Product } from "./models/Product";
 
 export function createApp(): Application {
   const app = express();
