@@ -1,5 +1,7 @@
 # ShopHub
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Online-blue?style=for-the-badge)](https://shophub-frontend-4x2h.onrender.com)
+
 A full-stack e-commerce app — product catalog, cart, checkout, order tracking, and an admin panel for managing all of it.
 
 Built with React + Vite + TypeScript on the frontend and Node/Express + MongoDB on the backend, with JWT auth (access + refresh tokens in httpOnly cookies) and Zustand for client state.
