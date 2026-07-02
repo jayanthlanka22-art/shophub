@@ -21,7 +21,10 @@ function setAuthCookies(res: Response, userId: string, role: "admin" | "user") {
   const cookieOpts = {
     httpOnly: true,
     secure: isProd,
-    sameSite: "lax" as const,
+    // Frontend and backend live on different domains in production (e.g. Vercel + Render),
+    // which makes every request cross-site — cookies need sameSite: "none" for that, and
+    // "none" requires secure: true. Locally, same-site "lax" is fine (same domain, different port).
+    sameSite: (isProd ? "none" : "lax") as "none" | "lax",
   };
 
   res.cookie("accessToken", accessToken, {
