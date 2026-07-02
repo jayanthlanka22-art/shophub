@@ -1,0 +1,50 @@
+# Render Blueprint — deploy both services from one repo
+# https://docs.render.com/infrastructure-as-code
+
+services:
+  # ── Backend (Node.js Web Service) ──────────────────────────────
+  - type: web
+    name: shophub-api
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false          # set manually in the Render dashboard
+      - key: JWT_ACCESS_SECRET
+        generateValue: true   # Render auto-generates a random secret
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: CLIENT_ORIGIN
+        sync: false          # set to your frontend URL after first deploy
+      - key: PORT
+        value: "10000"       # Render expects port 10000
+
+  # ── Frontend (Static Site) ────────────────────────────────────
+  - type: web
+    name: shophub-frontend
+    runtime: static
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false          # set to your backend URL + /api
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
