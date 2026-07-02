@@ -1,0 +1,147 @@
+@baseUrl = http://localhost:5000/api
+
+### Health check
+GET {{baseUrl}}/health
+
+### Register
+# @name register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "testuser@example.com",
+  "password": "Password123"
+}
+
+### Login (also works for admin@example.com / Admin@12345 after seeding)
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "Password123"
+}
+
+### Get current user (requires accessToken cookie from login/register)
+GET {{baseUrl}}/auth/me
+
+### Refresh access token
+POST {{baseUrl}}/auth/refresh
+
+### Logout
+POST {{baseUrl}}/auth/logout
+
+### -------- Categories --------
+
+### List categories
+GET {{baseUrl}}/categories
+
+### Create category (admin only)
+POST {{baseUrl}}/categories
+Content-Type: application/json
+
+{
+  "name": "Accessories"
+}
+
+### -------- Products --------
+
+### List products (with filters)
+GET {{baseUrl}}/products?page=1&limit=12&sort=price_asc&search=keyboard
+
+### Get single product
+GET {{baseUrl}}/products/REPLACE_WITH_PRODUCT_ID
+
+### Create product (admin only)
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Test Product",
+  "description": "A product created via the .http collection.",
+  "price": 19.99,
+  "category": "REPLACE_WITH_CATEGORY_ID",
+  "stock": 10,
+  "images": ["https://picsum.photos/seed/test/600/400"]
+}
+
+### Update product (admin only)
+PUT {{baseUrl}}/products/REPLACE_WITH_PRODUCT_ID
+Content-Type: application/json
+
+{
+  "stock": 25
+}
+
+### Delete product (admin only)
+DELETE {{baseUrl}}/products/REPLACE_WITH_PRODUCT_ID
+
+### -------- Cart --------
+
+### Get my cart
+GET {{baseUrl}}/cart
+
+### Add item to cart
+POST {{baseUrl}}/cart/items
+Content-Type: application/json
+
+{
+  "productId": "REPLACE_WITH_PRODUCT_ID",
+  "quantity": 2
+}
+
+### Update cart item quantity
+PUT {{baseUrl}}/cart/items/REPLACE_WITH_PRODUCT_ID
+Content-Type: application/json
+
+{
+  "quantity": 3
+}
+
+### Remove cart item
+DELETE {{baseUrl}}/cart/items/REPLACE_WITH_PRODUCT_ID
+
+### -------- Orders --------
+
+### Place order (from current cart)
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "shippingAddress": {
+    "fullName": "Test User",
+    "line1": "123 Main St",
+    "city": "Springfield",
+    "state": "IL",
+    "postalCode": "62704",
+    "country": "USA",
+    "phone": "555-0100"
+  }
+}
+
+### My orders
+GET {{baseUrl}}/orders/my
+
+### My order detail
+GET {{baseUrl}}/orders/my/REPLACE_WITH_ORDER_ID
+
+### All orders (admin only)
+GET {{baseUrl}}/orders
+
+### Update order status (admin only)
+PUT {{baseUrl}}/orders/REPLACE_WITH_ORDER_ID/status
+Content-Type: application/json
+
+{
+  "status": "processing"
+}
+
+### -------- Admin --------
+
+### Dashboard stats (admin only)
+GET {{baseUrl}}/admin/dashboard
+
+### List all users (admin only)
+GET {{baseUrl}}/admin/users
