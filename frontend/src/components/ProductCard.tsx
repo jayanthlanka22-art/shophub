@@ -25,7 +25,7 @@ export function ProductCard({ product }: { product: Product }) {
         {categoryName && <span className="text-xs text-gray-400 mb-1">{categoryName}</span>}
         <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1">{product.name}</h3>
         <div className="mt-auto flex items-center justify-between pt-2">
-          <span className="font-semibold text-gray-900">${product.price.toFixed(2)}</span>
+          <span className="font-semibold text-gray-900">₹{product.price.toLocaleString("en-IN")}</span>
           {outOfStock ? (
             <span className="text-xs text-red-500 font-medium">Out of stock</span>
           ) : (

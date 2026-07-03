@@ -95,13 +95,13 @@ export function CheckoutPage() {
             line.product ? (
               <div key={line.product._id} className="flex justify-between p-3 text-sm">
                 <span>{line.product.name} × {line.quantity}</span>
-                <span className="font-medium">${line.lineTotal.toFixed(2)}</span>
+                <span className="font-medium">₹{line.lineTotal.toLocaleString("en-IN")}</span>
               </div>
             ) : null
           )}
           <div className="flex justify-between p-3 font-semibold">
             <span>Subtotal</span>
-            <span>${cart.subtotal.toFixed(2)}</span>
+            <span>₹{cart.subtotal.toLocaleString("en-IN")}</span>
           </div>
         </div>
       </div>

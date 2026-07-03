@@ -72,7 +72,7 @@ export function AdminOrdersPage() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-semibold">${o.totalAmount.toFixed(2)}</span>
+                    <span className="font-semibold">₹{o.totalAmount.toLocaleString("en-IN")}</span>
                     <OrderStatusBadge status={o.status} />
                   </div>
                 </div>

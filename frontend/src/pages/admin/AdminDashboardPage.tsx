@@ -34,7 +34,7 @@ export function AdminDashboardPage() {
   return (
     <div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-        <StatCard label="Total Revenue" value={`$${stats.totalRevenue.toFixed(2)}`} />
+        <StatCard label="Total Revenue" value={`₹${stats.totalRevenue.toLocaleString("en-IN")}`} />
         <StatCard label="Total Orders" value={stats.totalOrders} />
         <StatCard label="Total Products" value={stats.totalProducts} />
       </div>

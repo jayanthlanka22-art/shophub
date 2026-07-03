@@ -68,12 +68,12 @@ export function OrderDetailPage() {
         {order.items.map((item, idx) => (
           <div key={idx} className="flex justify-between p-3 text-sm">
             <span>{item.name} × {item.quantity}</span>
-            <span className="font-medium">${(item.price * item.quantity).toFixed(2)}</span>
+            <span className="font-medium">₹{(item.price * item.quantity).toLocaleString("en-IN")}</span>
           </div>
         ))}
         <div className="flex justify-between p-3 font-semibold">
           <span>Total</span>
-          <span>${order.totalAmount.toFixed(2)}</span>
+          <span>₹{order.totalAmount.toLocaleString("en-IN")}</span>
         </div>
       </div>
 

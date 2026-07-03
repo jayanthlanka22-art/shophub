@@ -80,7 +80,7 @@ export function CartPage() {
                   <Link to={`/products/${line.product._id}`} className="font-medium hover:text-indigo-600">
                     {line.product.name}
                   </Link>
-                  <p className="text-sm text-gray-500">${line.product.price.toFixed(2)} each</p>
+                  <p className="text-sm text-gray-500">₹{line.product.price.toLocaleString("en-IN")} each</p>
                 </div>
                 <input
                   type="number"
@@ -90,7 +90,7 @@ export function CartPage() {
                   onChange={(e) => updateItem(line.product!._id, Math.max(1, Number(e.target.value)))}
                   className="w-16 border border-gray-300 rounded-md px-2 py-1 text-sm"
                 />
-                <span className="w-20 text-right font-medium">${line.lineTotal.toFixed(2)}</span>
+                <span className="w-20 text-right font-medium">₹{line.lineTotal.toLocaleString("en-IN")}</span>
                 <button onClick={() => removeItem(line.product!._id)} className="text-red-500 text-sm hover:underline">
                   Remove
                 </button>
@@ -100,7 +100,7 @@ export function CartPage() {
         </div>
 
         <div className="flex justify-between items-center mt-6 border-t pt-4">
-          <span className="text-lg font-semibold">Subtotal: ${cart.subtotal.toFixed(2)}</span>
+          <span className="text-lg font-semibold">Subtotal: ₹{cart.subtotal.toLocaleString("en-IN")}</span>
           <button
             onClick={() => navigate("/checkout")}
             className="px-5 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
@@ -135,7 +135,7 @@ export function CartPage() {
               <Link to={`/products/${line.product._id}`} className="font-medium hover:text-indigo-600">
                 {line.product.name}
               </Link>
-              <p className="text-sm text-gray-500">${line.product.price.toFixed(2)} each</p>
+              <p className="text-sm text-gray-500">₹{line.product.price.toLocaleString("en-IN")} each</p>
             </div>
             <input
               type="number"
@@ -145,7 +145,7 @@ export function CartPage() {
               onChange={(e) => updateGuestQuantity(line.product._id, Math.max(1, Number(e.target.value)))}
               className="w-16 border border-gray-300 rounded-md px-2 py-1 text-sm"
             />
-            <span className="w-20 text-right font-medium">${(line.product.price * line.quantity).toFixed(2)}</span>
+            <span className="w-20 text-right font-medium">₹{(line.product.price * line.quantity).toLocaleString("en-IN")}</span>
             <button onClick={() => removeGuestItem(line.product._id)} className="text-red-500 text-sm hover:underline">
               Remove
             </button>
@@ -153,7 +153,7 @@ export function CartPage() {
         ))}
       </div>
       <div className="flex justify-between items-center mt-6 border-t pt-4">
-        <span className="text-lg font-semibold">Subtotal: ${guestSubtotal.toFixed(2)}</span>
+        <span className="text-lg font-semibold">Subtotal: ₹{guestSubtotal.toLocaleString("en-IN")}</span>
         <Link to="/login" className="px-5 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
           Log in to checkout
         </Link>

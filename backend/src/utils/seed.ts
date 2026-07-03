@@ -10,24 +10,24 @@ function slugify(name: string): string {
   return name.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-const CATEGORY_NAMES = ["Electronics", "Home & Kitchen", "Sportswear"];
+const CATEGORY_NAMES = ["Laptops & Tablets", "Mobile Accessories", "Smart Gadgets"];
 
 const PRODUCTS: { name: string; description: string; price: number; stock: number; category: string; images: string[] }[] = [
-  { name: "Wireless Mechanical Keyboard", description: "75% layout hot-swappable mechanical keyboard with RGB backlight.", price: 89.99, stock: 24, category: "Electronics", images: ["https://picsum.photos/seed/kb1/600/400"] },
-  { name: "Noise-Cancelling Headphones", description: "Over-ear ANC headphones with 30-hour battery life.", price: 149.5, stock: 15, category: "Electronics", images: ["https://picsum.photos/seed/hp1/600/400"] },
-  { name: "4K Webcam", description: "Ultra HD webcam with autofocus and built-in ring light.", price: 59.99, stock: 40, category: "Electronics", images: ["https://picsum.photos/seed/wc1/600/400"] },
-  { name: "Portable SSD 1TB", description: "USB-C portable solid state drive, read speeds up to 1050MB/s.", price: 109.0, stock: 30, category: "Electronics", images: ["https://picsum.photos/seed/ssd1/600/400"] },
-  { name: "Smart LED Desk Lamp", description: "Dimmable desk lamp with app control and color temperature presets.", price: 34.99, stock: 3, category: "Electronics", images: ["https://picsum.photos/seed/lamp1/600/400"] },
-  { name: "Stainless Steel Cookware Set", description: "10-piece tri-ply stainless steel cookware set, oven safe.", price: 199.99, stock: 12, category: "Home & Kitchen", images: ["https://picsum.photos/seed/cook1/600/400"] },
-  { name: "Electric Kettle", description: "1.7L rapid-boil electric kettle with auto shut-off.", price: 29.99, stock: 50, category: "Home & Kitchen", images: ["https://picsum.photos/seed/kettle1/600/400"] },
-  { name: "Air Fryer 5.5L", description: "Digital air fryer with 8 presets and non-stick basket.", price: 79.99, stock: 4, category: "Home & Kitchen", images: ["https://picsum.photos/seed/fryer1/600/400"] },
-  { name: "Memory Foam Pillow Set", description: "Set of 2 ergonomic cervical support pillows.", price: 44.99, stock: 22, category: "Home & Kitchen", images: ["https://picsum.photos/seed/pillow1/600/400"] },
-  { name: "Ceramic Knife Set", description: "6-piece ceramic knife set with block, rust-proof blades.", price: 39.99, stock: 18, category: "Home & Kitchen", images: ["https://picsum.photos/seed/knife1/600/400"] },
-  { name: "Running Shoes", description: "Lightweight breathable running shoes with cushioned sole.", price: 64.99, stock: 35, category: "Sportswear", images: ["https://picsum.photos/seed/shoe1/600/400"] },
-  { name: "Yoga Mat Pro", description: "6mm extra-thick non-slip yoga mat with carry strap.", price: 24.99, stock: 60, category: "Sportswear", images: ["https://picsum.photos/seed/yoga1/600/400"] },
-  { name: "Compression Leggings", description: "Moisture-wicking compression leggings for training.", price: 32.5, stock: 45, category: "Sportswear", images: ["https://picsum.photos/seed/legging1/600/400"] },
-  { name: "Adjustable Dumbbell Set", description: "5-25kg adjustable dumbbell pair for home gym use.", price: 129.99, stock: 2, category: "Sportswear", images: ["https://picsum.photos/seed/dumbbell1/600/400"] },
-  { name: "Insulated Water Bottle", description: "1L vacuum-insulated stainless steel bottle, keeps cold 24h.", price: 19.99, stock: 70, category: "Sportswear", images: ["https://picsum.photos/seed/bottle1/600/400"] },
+  { name: "JioBook 4G Laptop", description: "11.6\" HD display, JioOS, Qualcomm Snapdragon 665, 4GB RAM, 64GB eMMC. Built for India with Jio connectivity.", price: 16499, stock: 20, category: "Laptops & Tablets", images: ["https://picsum.photos/seed/jiobook/600/400"] },
+  { name: "Realme Pad X WiFi Tablet", description: "11\" 2K display, Snapdragon 695, 6GB RAM, 128GB storage, quad speakers with Dolby Atmos.", price: 19999, stock: 15, category: "Laptops & Tablets", images: ["https://picsum.photos/seed/realmepad/600/400"] },
+  { name: "Avita Liber V14 Laptop", description: "14\" FHD IPS, Intel Core i5 10th Gen, 8GB RAM, 512GB SSD. Made for Indian students & professionals.", price: 38990, stock: 10, category: "Laptops & Tablets", images: ["https://picsum.photos/seed/avita14/600/400"] },
+  { name: "Lava Tab T81N", description: "8\" HD display Android tablet with 4G calling, 3GB RAM, 32GB storage. Affordable made-in-India tablet.", price: 9499, stock: 35, category: "Laptops & Tablets", images: ["https://picsum.photos/seed/lavatab/600/400"] },
+  { name: "Coconics Enabler C1C11 Laptop", description: "14\" FHD, Intel Celeron, 4GB RAM, 128GB SSD. India's first indigenously designed laptop brand from Kerala.", price: 24999, stock: 8, category: "Laptops & Tablets", images: ["https://picsum.photos/seed/coconics/600/400"] },
+  { name: "boAt Airdopes 141 TWS Earbuds", description: "42H playtime, ENx™ noise cancellation, BEAST mode low latency, IPX4 sweat resistance. India's #1 audio brand.", price: 1299, stock: 120, category: "Mobile Accessories", images: ["https://picsum.photos/seed/boatbuds/600/400"] },
+  { name: "Portronics Harmonics Z5 Neckband", description: "Bluetooth 5.2 neckband with 50H playback, ENC, dual pairing, fast charge. Designed for Indian commuters.", price: 899, stock: 80, category: "Mobile Accessories", images: ["https://picsum.photos/seed/portronics/600/400"] },
+  { name: "Ambrane 20000mAh Power Bank", description: "20W fast charging power bank with Type-C input, dual USB output, LED display. BIS certified.", price: 1499, stock: 60, category: "Mobile Accessories", images: ["https://picsum.photos/seed/ambrane/600/400"] },
+  { name: "Croma 20W Type-C Charger", description: "20W PD fast charger with BIS certification, compact design. Compatible with all iPhones & Android phones.", price: 799, stock: 90, category: "Mobile Accessories", images: ["https://picsum.photos/seed/cromacharger/600/400"] },
+  { name: "Stuffcool Mag Wireless Charger", description: "15W MagSafe-compatible wireless charger pad, anti-slip base, LED indicator. Made for Indian smartphones.", price: 1999, stock: 40, category: "Mobile Accessories", images: ["https://picsum.photos/seed/stuffcool/600/400"] },
+  { name: "Noise ColorFit Pro 5 Smartwatch", description: "1.85\" AMOLED display, Bluetooth calling, 100+ sports modes, SpO2. India's beloved smartwatch brand.", price: 4499, stock: 45, category: "Smart Gadgets", images: ["https://picsum.photos/seed/noisewatch/600/400"] },
+  { name: "Fire-Boltt Phoenix Ultra Smartwatch", description: "1.39\" HD display, built-in GPS, Bluetooth calling, heart rate & SpO2. Stainless steel rotating crown.", price: 3499, stock: 55, category: "Smart Gadgets", images: ["https://picsum.photos/seed/fireboltt/600/400"] },
+  { name: "boAt Wave Call 2 Smartwatch", description: "1.83\" HD display, advanced BT calling, Crest+ health ecosystem, 700+ active modes, IP68 rated.", price: 2499, stock: 65, category: "Smart Gadgets", images: ["https://picsum.photos/seed/boatwatch/600/400"] },
+  { name: "Portronics SoundDrum 1 BT Speaker", description: "15W portable Bluetooth speaker with TWS pairing, 8H battery, USB/AUX/FM/SD support. IPX6 waterproof.", price: 1799, stock: 30, category: "Smart Gadgets", images: ["https://picsum.photos/seed/sounddrum/600/400"] },
+  { name: "Zebronics Zeb-Smart Cam 104", description: "2MP WiFi smart security camera, 360° pan-tilt, night vision, two-way talk, SD card support. Made in India.", price: 2199, stock: 25, category: "Smart Gadgets", images: ["https://picsum.photos/seed/zebcam/600/400"] },
 ];
 
 async function seed() {

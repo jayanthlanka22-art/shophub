@@ -84,7 +84,7 @@ export function AdminProductsPage() {
                 <tr key={p._id}>
                   <td className="p-3">{p.name}</td>
                   <td className="p-3 text-gray-500">{typeof p.category === "string" ? "" : p.category.name}</td>
-                  <td className="p-3">${p.price.toFixed(2)}</td>
+                  <td className="p-3">₹{p.price.toLocaleString("en-IN")}</td>
                   <td className="p-3">
                     <span className={p.stock < 5 ? "text-red-600 font-medium" : ""}>{p.stock}</span>
                   </td>

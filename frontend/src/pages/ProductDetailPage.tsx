@@ -59,7 +59,7 @@ export function ProductDetailPage() {
         </button>
         {categoryName && <span className="text-xs text-gray-400">{categoryName}</span>}
         <h1 className="text-2xl font-bold text-gray-900 mt-1">{product.name}</h1>
-        <p className="text-2xl font-semibold text-indigo-600 mt-3">${product.price.toFixed(2)}</p>
+        <p className="text-2xl font-semibold text-indigo-600 mt-3">₹{product.price.toLocaleString("en-IN")}</p>
         <p className="text-gray-600 mt-4 leading-relaxed">{product.description}</p>
 
         <p className="mt-4 text-sm">
